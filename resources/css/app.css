@@ -1,0 +1,46 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import './components/alert.css';
+
+:root{
+    --color-primary: rgb(16, 54, 125);
+    --poppins : "Poppins", sans-serif ;
+    --montserrat : "Montserrat", sans-serif ;
+}
+
+*{
+    font-family: var(--poppins);
+}
+
+.font-primary {
+    font-family: var(--montserrat) !important;
+}
+
+.text-primary{
+    color: var(--color-primary) !important;
+}
+
+.bg-primary{
+    background: var(--color-primary) !important;
+}
+
+.opacity-100-hover:hover{
+    opacity: 100% !important;
+}
+
+.btn-primary{
+    background: var(--color-primary) !important;
+    box-shadow: 1px 1px 3px grey;
+}
+
+.btn-primary:hover{
+    opacity: 95%;
+}
+
+.form-auth{
+    width: 100%;
+    max-width: 400px;
+}
+
+.aspect-ratio-1{
+    aspect-ratio: 1 / 1;
+}

@@ -6,4 +6,3 @@ Route::get('/', function(){
     return view('web.user.pages.index');
 })->name('home.index');
 
-// profile 

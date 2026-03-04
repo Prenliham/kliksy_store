@@ -14,14 +14,18 @@ class AuthService
 {
     public function register(array $data, bool $remember)
     {
-        DB::transaction(function() use ($data, $remember){
+        DB::transaction(function() use ($data, $remember)
+        {
             $result = [
                 'name' => $data['name'],
                 'username' => $this->createdUsername($data['name']),
                 'email' => $data['email'],
                 'password' => Hash::make($data['password'])
             ];
+
             $user = User::create($result);
+
+            $user->profil()->create();
 
             Auth::login($user, $remember);
 
@@ -53,12 +57,12 @@ class AuthService
     }
 
 
-    public function createdUsername($name)
+    public function createdUsername($name) : string
     {
         $slug = Str::slug($name);
         $originalSlug = $slug;
         $count = 1 ;
-        if (User::where('username', $slug)->exists()) {
+        while (User::where('username', $slug)->exists()) {
             $slug = $originalSlug . "-" . $count;
             $count++;
         }
